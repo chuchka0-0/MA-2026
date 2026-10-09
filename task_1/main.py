@@ -37,7 +37,7 @@ plt.title("Шаг 1. Исходный временной ряд")
 plt.grid(alpha=0.3)
 plt.legend()
 plt.tight_layout()
-plt.savefig("step1_series.png", dpi=150)
+plt.savefig("results/step1_series.png", dpi=150)
 
 # ---------------------------------------------------------------
 # Шаг 2. Коэффициенты Фурье «ручками»
@@ -66,7 +66,7 @@ for k in range(1, K_MAX + 1):
 # сохраним таблицу в CSV для отчёта
 pd.DataFrame({"k": range(1, K_MAX + 1),
               "a_k": a[1:], "b_k": b[1:], "A_k": A[1:]}
-             ).to_csv("fourier_coefficients.csv", index=False)
+             ).to_csv("results/fourier_coefficients.csv", index=False)
 
 # ---------------------------------------------------------------
 # Шаг 3. Спектр (гистограмма A_k) и поиск пиков
@@ -96,7 +96,7 @@ plt.title("Шаг 3. Амплитудный спектр")
 plt.grid(alpha=0.3, axis="y")
 plt.legend()
 plt.tight_layout()
-plt.savefig("step3_spectrum.png", dpi=150)
+plt.savefig("results/step3_spectrum.png", dpi=150)
 
 # ---------------------------------------------------------------
 # Шаг 4. Интерпретация аномалии (печатаем числа для выводов)
@@ -141,8 +141,8 @@ for ax, (K, y) in zip(axes, fits.items()):
     ax.legend(loc="upper right")
 axes[-1].set_xlabel("index (время)")
 plt.tight_layout()
-plt.savefig("step5_approximation.png", dpi=150)
+plt.savefig("results/step5_approximation.png", dpi=150)
 
-print("\nГрафики сохранены: step1_series.png, step3_spectrum.png, step5_approximation.png")
-print("Таблица коэффициентов: fourier_coefficients.csv")
+print("\nГрафики сохранены: results/step1_series.png, results/step3_spectrum.png, results/step5_approximation.png")
+print("Таблица коэффициентов: results/fourier_coefficients.csv")
 plt.show()
