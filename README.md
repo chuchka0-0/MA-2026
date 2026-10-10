@@ -47,8 +47,7 @@ $$T(t) \approx \frac{a_0}{2} + \sum_{k=1}^{K}\left(a_k\cos\frac{2\pi k t}{N} + b
 
 В программе используется **робастный порог** через медиану и медианное абсолютное отклонение (MAD):
 
-$$A_k > \operatorname{med}(A) + 5 \cdot 1.4826 \cdot \operatorname{MAD}(A), \qquad \operatorname{MAD}(A) = \operatorname{med}\big|A_k - \operatorname{med}(A)\big|.$$
-
+$$A_k > \text{med}(A) + 5 \cdot 1.4826 \cdot \text{MAD}(A), \qquad \text{MAD}(A) = \text{med}\big|A_k - \text{med}(A)\big|.$$
 
 Множитель 1.4826 переводит MAD в оценку СКО для нормального распределения. Почему не обычное правило $\overline{A} + 3\sigma_A$: сильный пик сам раздувает среднее и СКО, и порог «уезжает» вверх вслед за аномалией. Медиана и MAD от одного-двух выбросов почти не меняются, поэтому описывают именно фон.
 
